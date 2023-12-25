@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: my-deployment
+
+
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 3
+  template: 
+    metadata: 
+      name: web
+      labels: 
+        app: web
+        
+    spec: 
+      containers: 
+        - name: web-image
+          image: mohamed0/nginx-project
+          resources:
+            limits: 
+              memory: "512Mi"
+              cpu: "1" 
